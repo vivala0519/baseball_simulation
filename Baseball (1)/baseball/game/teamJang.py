@@ -1,5 +1,4 @@
 from random import choices
-from bs4 import BeautifulSoup
 
 #def home_team_line_up():
 
@@ -7,37 +6,37 @@ from bs4 import BeautifulSoup
 #def away_team_line_up():
 
 
-def batter():
-    fp = open("STATIZ_batter.html", encoding='utf-8')
-
-    soup = BeautifulSoup(fp, "html.parser")
-
-    batter_name = soup.select('a')[96].string
-    return batter_name
-
-def pitcher():
-    fp = open("STATIZ_pitcher.html", encoding='utf-8')
-
-    soup = BeautifulSoup(fp, "html.parser")
-
-    pitcher_name = soup.select('a')[95].string
-    return pitcher_name
+# def batter():
+#     fp = open("STATIZ_batter.html", encoding='utf-8')
+#
+#     soup = BeautifulSoup(fp, "html.parser")
+#
+#     batter_name = soup.select('a')[96].string
+#     return batter_name
+#
+# def pitcher():
+#     fp = open("STATIZ_pitcher.html", encoding='utf-8')
+#
+#     soup = BeautifulSoup(fp, "html.parser")
+#
+#     pitcher_name = soup.select('a')[95].string
+#     return pitcher_name
 
 def batter_OBP():       # 타자 출루율
-    fp = open("STATIZ_batter.html", encoding="utf-8")
+    # fp = open("STATIZ_batter.html", encoding="utf-8")
+    #
+    # soup = BeautifulSoup(fp, "html.parser")
 
-    soup = BeautifulSoup(fp, "html.parser")
-
-    batter_obp = float('0' + soup.select("span")[225].string)
+    batter_obp = 0.405
     #print(batter(), '의 출루율 : ', batter_obp)
     return batter_obp
 
 def pitcher_OBP():      # 투수 피출루율
-    fp = open("STATIZ_pitcher.html", encoding="utf-8")
+    # fp = open("STATIZ_pitcher.html", encoding="utf-8")
+    #
+    # soup = BeautifulSoup(fp, "html.parser")
 
-    soup = BeautifulSoup(fp, "html.parser")
-
-    pitcher_obp = float('0' + soup.select("span")[165].string)
+    pitcher_obp = 0.296
     #print(pitcher(), '의 피출루율 : ', pitcher_obp)
     return pitcher_obp
 
@@ -52,17 +51,23 @@ def batter_league_OBP():        # 타자리그 출루율
     return batter_year_obp
 
 def hit_result():       # 안타 결과(안타, 2루타, 3루타, 홈런, 볼넷 출력)
-    fp = open("STATIZ_batter.html", encoding="utf-8")
-
-    soup = BeautifulSoup(fp, "html.parser")
-
-    hit = int(soup.select('span')[209].string) + int(soup.select('span')[217].string)
-    BB = int(soup.select("span")[217].string)
-    hit_one = int(soup.select('span')[209].string) - int(soup.select('span')[210].string) - int(
-        soup.select('span')[211].string) - int(soup.select('span')[212].string)
-    hit_two = int(soup.select('span')[210].string)
-    hit_three = int(soup.select('span')[211].string)
-    homerun = int(soup.select('span')[212].string)
+    # fp = open("STATIZ_batter.html", encoding="utf-8")
+    #
+    # soup = BeautifulSoup(fp, "html.parser")
+    #
+    # hit = int(soup.select('span')[209].string) + int(soup.select('span')[217].string)
+    hit = 235
+    # BB = int(soup.select("span")[217].string)
+    BB = 59
+    # hit_one = int(soup.select('span')[209].string) - int(soup.select('span')[210].string) - int(
+    hit_one = 91
+    #     soup.select('span')[211].string) - int(soup.select('span')[212].string)
+    # hit_two = int(soup.select('span')[210].string)
+    hit_two = 36
+    # hit_three = int(soup.select('span')[211].string)
+    hit_three = 1
+    # homerun = int(soup.select('span')[212].string)
+    homerun = 44
 
     hit_kind = ['안타', '2루타', '3루타', '홈런', '볼넷']
     run_rate = [hit_one / hit, hit_two / hit, hit_three / hit, homerun / hit, BB / hit]
@@ -72,23 +77,23 @@ def hit_result():       # 안타 결과(안타, 2루타, 3루타, 홈런, 볼넷
     return hit_def
 
 def out_result():       # 아웃 결과 (삼진, 뜬공, 땅볼 중 출력)
-    fp1 = open("STATIZ_pitcher_basic.html", encoding="utf-8")
-    fp2 = open("STATIZ_pitcher_2.html", encoding='utf-8')
+    # fp1 = open("STATIZ_pitcher_basic.html", encoding="utf-8")
+    # fp2 = open("STATIZ_pitcher_2.html", encoding='utf-8')
+    #
+    # soup = BeautifulSoup(fp1, "html.parser")
+    # soup2 = BeautifulSoup(fp2, "html.parser")
 
-    soup = BeautifulSoup(fp1, "html.parser")
-    soup2 = BeautifulSoup(fp2, "html.parser")
-
-    inning = float(soup.select('span')[181].string)
-    #print(inning)
-    out_count = int((soup.select('span')[181].string).split('.')[0]) * 3 + int(
-        (soup.select('span')[181].string).split('.')[1])
-    #print(out_count)
-    strike_out = int(soup.select('span')[192].string)
-    #print(strike_out)
-    flyball_out = int(soup2.select('span')[785].string)
-    #print(flyball_out)
-    groundball_out = int(soup2.select('span')[786].string)
-    #print(groundball_out)
+    # inning = float(soup.select('span')[181].string)
+    # #print(inning)
+    # out_count = int((soup.select('span')[181].string).split('.')[0]) * 3 + int(
+    #     (soup.select('span')[181].string).split('.')[1])
+    # #print(out_count)
+    # strike_out = int(soup.select('span')[192].string)
+    # #print(strike_out)
+    # flyball_out = int(soup2.select('span')[785].string)
+    # #print(flyball_out)
+    # groundball_out = int(soup2.select('span')[786].string)
+    # #print(groundball_out)
 
     out_kind = ['삼진', '땅볼아웃', '뜬공아웃']
     #out_rate = [strike_out / out_count, flyball_out / out_count, groundball_out / out_count]
