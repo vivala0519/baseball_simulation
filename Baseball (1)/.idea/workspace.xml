@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82dbf260-9ffd-40a2-82a0-b89870628275" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/baseball/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/db.sqlite3" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseball/baseball/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/baseball/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseball/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseball/game/teamJang.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/game/teamJang.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseball/game/templates/game/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/game/templates/game/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseball/game/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/game/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseball/game/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/game/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseball/static/css/baseball.css" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/static/css/baseball.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseball/static/js/baseball.js" beforeDir="false" afterPath="$PROJECT_DIR$/baseball/static/js/baseball.js" afterDir="false" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,28 +163,36 @@
     <session id="1920658591">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="1" />
+          <entry key="css" value="1" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="1" />
+          <entry key="CSS" value="1" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="7" />
+          <entry key="css" value="15" />
+          <entry key="js" value="31" />
+          <entry key="py" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="7" />
+          <entry key="CSS" value="15" />
+          <entry key="JavaScript" value="31" />
+          <entry key="Python" value="31" />
         </counts>
       </usages-collector>
     </session>
@@ -182,8 +202,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baseball/game/urls.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="247">
               <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+=======
+            <state relative-caret-position="266">
+              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -203,8 +228,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baseball/static/js/baseball.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="114">
               <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+=======
+            <state relative-caret-position="133">
+              <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
             </state>
           </provider>
         </entry>
@@ -212,8 +242,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/baseball/static/css/baseball.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="473">
               <caret line="89" selection-start-line="89" selection-end-line="89" />
+=======
+            <state relative-caret-position="131">
+              <caret line="89" column="11" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
             </state>
           </provider>
         </entry>
@@ -221,8 +256,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baseball/game/teamJang.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="247">
               <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+=======
+            <state relative-caret-position="76">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
             </state>
           </provider>
         </entry>
@@ -242,8 +282,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baseball/game/views.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="154">
               <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+=======
+            <state relative-caret-position="192">
+              <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -259,8 +304,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baseball/game/templates/game/game.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-589">
               <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
+=======
+            <state relative-caret-position="-494">
+              <caret line="91" column="21" lean-forward="true" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
             </state>
           </provider>
         </entry>
@@ -282,7 +332,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>players</find>
       <find>sortable</find>
       <find>record</find>
       <find>total</find>
@@ -309,6 +358,10 @@
       <find>start</find>
       <find>chat-message-submit</find>
       <find>ground</find>
+      <find>searchStr</find>
+      <find>output</find>
+      <find>selectTeam</find>
+      <find>findindex</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -317,9 +370,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/baseball/static/js/baseball.js" />
         <option value="$PROJECT_DIR$/baseball/templates/game2.html" />
-        <option value="$PROJECT_DIR$/baseball/static/css/baseball.css" />
         <option value="$PROJECT_DIR$/baseball/game/test.py" />
         <option value="$PROJECT_DIR$/baseball/game/ones.py" />
         <option value="$PROJECT_DIR$/baseball/templates/game.html" />
@@ -332,17 +383,23 @@
         <option value="$PROJECT_DIR$/baseball/baseball/Baseball_sqlite.py" />
         <option value="$PROJECT_DIR$/baseball/Baseball_sqlite.py" />
         <option value="$PROJECT_DIR$/baseball/baseball/routing.py" />
-        <option value="$PROJECT_DIR$/baseball/baseball/urls.py" />
         <option value="$PROJECT_DIR$/baseball/baseball/views.py" />
         <option value="$PROJECT_DIR$/baseball/game/routing.py" />
-        <option value="$PROJECT_DIR$/baseball/game/templates/game/game.html" />
+        <option value="$PROJECT_DIR$/baseball/game/teamJang.py" />
+        <option value="$PROJECT_DIR$/baseball/baseball/urls.py" />
         <option value="$PROJECT_DIR$/baseball/game/urls.py" />
         <option value="$PROJECT_DIR$/baseball/game/views.py" />
-        <option value="$PROJECT_DIR$/baseball/game/teamJang.py" />
+        <option value="$PROJECT_DIR$/baseball/game/templates/game/game.html" />
+        <option value="$PROJECT_DIR$/baseball/static/js/baseball.js" />
+        <option value="$PROJECT_DIR$/baseball/static/css/baseball.css" />
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="7">
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
     <option name="x" value="70" />
     <option name="width" value="1298" />
     <option name="height" value="770" />
@@ -376,7 +433,31 @@
               <item name="Baseball (1)" type="462c0819:PsiDirectoryNode" />
               <item name="baseball" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Baseball (1)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Baseball (1)" type="462c0819:PsiDirectoryNode" />
+              <item name="baseball" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Baseball (1)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Baseball (1)" type="462c0819:PsiDirectoryNode" />
+              <item name="baseball" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Baseball (1)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Baseball (1)" type="462c0819:PsiDirectoryNode" />
+              <item name="baseball" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Baseball (1)" type="b2602c69:ProjectViewProjectNode" />
@@ -524,7 +605,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Version Control" order="7" />
+=======
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32907802" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.7408585" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2591415" side_tool="true" weight="0.14119601" />
       <window_info anchor="bottom" id="Python Console" order="10" />
@@ -590,6 +675,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/baseball/registration/login.html" />
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/baseball/static/css/baseball.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
@@ -597,6 +683,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
     <entry file="file://$PROJECT_DIR$/../찌르레기/baseball/game/views.py" />
     <entry file="file://$PROJECT_DIR$/../찌르레기/baseball/game/urls.py" />
     <entry file="file://$PROJECT_DIR$/../찌르레기/baseball/baseball/urls.py" />
@@ -634,6 +722,7 @@
     <entry file="file://$PROJECT_DIR$/baseball/db.sqlite3">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/baseball/Baseball_sqlite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
@@ -641,6 +730,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
     <entry file="file://$PROJECT_DIR$/baseball/baseball/routing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5">
@@ -648,6 +739,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/baseball/game/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -658,6 +750,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
     <entry file="file://$PROJECT_DIR$/baseball/baseball/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -675,20 +769,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/baseball/game/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseball/game/templates/game/room.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="481" column="9" selection-start-line="481" selection-start-column="9" selection-end-line="481" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/baseball/baseball/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        <state relative-caret-position="325">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#632#664#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseball/game/models.py">
+    <entry file="file://$PROJECT_DIR$/baseball/game/teamJang.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="76">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -702,47 +810,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseball/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseball/game/templates/game/game.html">
+    <entry file="file://$PROJECT_DIR$/baseball/game/views.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-589">
           <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
+=======
+        <state relative-caret-position="192">
+          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseball/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/baseball/templates/base2.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseball/game/templates/game/room.html">
+    <entry file="file://$PROJECT_DIR$/baseball/game/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9139">
-          <caret line="481" column="9" selection-start-line="481" selection-start-column="9" selection-end-line="481" selection-end-column="9" />
+        <state relative-caret-position="266">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseball/game/views.py">
+    <entry file="file://$PROJECT_DIR$/baseball/Baseball_sqlite.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="154">
           <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="268">
+          <caret line="76" column="19" lean-forward="true" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseball/game/templates/game/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-494">
+          <caret line="91" column="21" lean-forward="true" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/baseball/static/js/baseball.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="114">
           <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+=======
+        <state relative-caret-position="133">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseball/game/teamJang.py">
+    <entry file="file://$PROJECT_DIR$/baseball/static/css/baseball.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="247">
           <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+=======
+        <state relative-caret-position="131">
+          <caret line="89" column="11" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
+>>>>>>> c015a7d4b1c05fd2b4dc6c365143f421a988bd8e
         </state>
       </provider>
     </entry>

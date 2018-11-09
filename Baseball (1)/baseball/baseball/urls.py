@@ -29,4 +29,5 @@ urlpatterns = [
 
     path('game/', include('game.urls')),
 
+
 ]
