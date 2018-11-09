@@ -1,0 +1,55 @@
+{% extends "base.html" %}   <!--base.html 을 상속받으며 첫줄에 와야함 -->
+
+{% block title %}login.html{% endblock %}
+
+{% load staticfiles %}  <!-- 커스텀 태그를 사용하기 위해 staticfiles 모듈 로딩 -->
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+ <br />
+<div id="content1">
+
+    <h1 style="color:#225273;">Please Login</h1>
+
+    <form action="." method="post">{% csrf_token %}
+
+    {% if form.errors %}
+        <p class="errornote">Wrong! Please correct the error(s) below.</p>
+    {% endif %}
+
+    <p>Please enter your id and password.</p>
+
+    <fieldset class="aligned">
+
+        <div class="form-row">
+            {{ form.username.label_tag }}{{ form.username }}
+        </div>
+
+        <div class="form-row">
+            {{ form.password.label_tag }}{{ form.password }}
+        </div>
+        <hr>
+    </fieldset>
+
+    <div class="submit-row">
+
+        <input it="sub" type="submit" value="LogIn" style="margin-bottom: 15px;" />
+        <!-- input type="hidden" name="next" value="/" / -->
+        <input type="hidden" name="next" value="{{ next }}" />
+
+    </div>
+
+    <script type="text/javascript">document.getElementById('id_username').focus();</script>
+    </form>
+
+</div>
+
+<div id="escapee" style="margin-top: 270px;"></div>
+
+{% endblock content %}
+
+
+{% block footer %}
+{% endblock footer %}
+
+<!-- 로그인 화면구성  -->

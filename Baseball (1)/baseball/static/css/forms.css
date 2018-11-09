@@ -1,0 +1,131 @@
+/* login Form Error */
+
+.errornote {
+    display: block;
+    margin: 5px 0;
+    border: 1px solid #c30;
+    background: #fcf;
+    padding: 5px 25px;
+    color: #c30;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* Authentication Forms */
+
+
+/* Login 시작 */
+.fieldset {
+    border: 1px solid #ccc;
+}
+
+.aligned {
+   height: 70px;
+    margin-bottom: 20px;
+
+}
+
+.aligned label {
+    float: left;
+    width: 170px;
+    padding: 3px 10px 0 0;
+
+}
+
+.form-row {
+    padding: 5px;
+    font-size: 12px;
+    border-bottom: 1px solid #fff;
+
+}
+
+
+.submit-row input {
+    background-color:#deeefa;
+    text-decoration: none;
+    border: 1px solid #82a8c0;
+    border-radius: 4px;
+    height: 31px;
+    width: 60px;
+    color: rgba(30, 22, 54, 0.6);
+    text-align: center;
+    font-size:13px;
+
+    margin: 10px;
+
+}
+
+.submit-row input:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: #3498db 0 0px 0px 40px inset;
+    text-decoration: none !important
+}
+
+
+#content1 {
+    border: 1px solid #2980b9;
+    border-radius: 15px;
+    width: 400px;
+    text-align:center;
+    margin: 0 auto;
+    margin-top: 20px;
+
+}
+
+/* Login 끝 */
+
+/* Logout 시작 */
+
+#content2 {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 450px;
+    height: 180px;
+    border: 1px solid #9fcbea;
+    border-radius: 15px;
+    margin-top: 70px;
+
+}
+
+/* Logout 끝 */
+
+/* register 시작 */
+
+#content3 {
+    border: 1px solid #9fcbea;
+    border-radius: 15px;
+    width: 400px;
+    text-align:center;
+    margin: 0 auto;
+
+
+}
+div#row1 {
+text-align: center;
+margin-top: 225px;
+margin-bottom: 50px;
+
+/* register 끝 */
+
+/* register done 시작 */
+
+#content4 {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 450px;
+    height: 180px;
+    border: 1px solid #9fcbea;
+    border-radius: 15px;
+    margin-top: 70px;
+
+}
+
+/* register done 끝 */
+
+/* password_change_form 시작 */
+
+
+
+/* password_change_form 끝 */

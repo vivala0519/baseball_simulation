@@ -1,0 +1,21 @@
+{% extends "base.html" %}   <!--base.html 을 상속받으며 첫줄에 와야함 -->
+
+{% block title %}logged_out.html{% endblock %}
+
+{% load staticfiles %}  <!-- 커스텀 태그를 사용하기 위해 staticfiles 모듈 로딩 -->
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+<div id="content2">
+    <br />
+    <h1 style="color:#225273;">Logged out</h1>
+
+    <p>"Thanks for spending your quality time with this web site today."</p>
+
+    <p><a href="{% url 'login' %}"> [ Login again ]</a></p>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock footer %}

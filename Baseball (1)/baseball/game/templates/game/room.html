@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<head>
+<title>야놀자!!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/baseball.css' %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+<script src="/static/js/baseball.js" type="text/javascript"></script>
+
+    <!--hs-->
+<script src='{%static "js/search.js"%}'></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+
+.sortable{
+    float:left;
+}
+
+.sortable li {
+    background: white;
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+    text-align: center;
+}
+
+.index{
+    float:left;f
+}
+
+.index > ul li{
+    height: 30px;
+    width: 30px;
+    margin: 5px 3px 7px 3px;
+    padding: 4px;
+    background: rgb(22, 160, 133);
+    color: white;
+    font-size: 17px;
+    text-align: center;
+}
+.delete{
+    float:left;
+    width:20px
+    height:20px;
+}
+
+.delete button{
+    margin-bottom: 7px;
+}
+#total{
+    width:100%;
+}
+
+
+#tabs{
+    height: 100%;
+}
+
+#record_tab{
+    overflow-y:auto;
+    height: 310px;
+}
+
+#record_tab div{
+    padding: 0 15px 10px 15px;
+}
+
+#score_board{
+    width: 600px;
+    border-collapse: collapse;
+}
+#score_board thead th{
+    padding: 8px 2px 6px 2px;
+    border: 1px solid #d8d8d8;
+    border-right: 0;
+    width: 20px;
+    color: #847f7f;
+    background: #f5f5f5;
+    border-left-color: #eee;
+    text-align: center
+}
+
+#score_board td{
+    text-align: center;
+    padding: 7px 0 4px 0;
+    border: 1px solid #ededed;
+    border-width: 0 0 1px 1px;
+    color:#494949
+}
+
+#score_board th{
+    padding: 7px 0 4px 0;
+    border: 0;
+    border-bottom: 1px solid #ededed;
+    color:#494949
+}
+
+#score_board td strong{
+    color: #f4561c;
+}
+
+
+.ch {
+    display: inline;
+    margin: 5px;
+}
+.tc {
+    display: inline;
+    margin: 10px;
+}
+
+.toggler{
+width: 800px;
+    margin: 0 auto;
+
+}
+</style>
+
+</head>
+<body>
+<div id="header">
+    <div id="h-box"><h2 class="maintitle">Your Baseball Simulation PlayGround</h2></div>
+</div>
+
+<div class="container-fluid">
+<div id="row1">
+
+
+        <!--<strong id="st_h4">Team OR Player Search: </strong>
+          <input id="search1" type="text" name="q">
+        <button id="icon" type="submit"><span class="glyphicon glyphicon-search"></span></button>-->
+
+        <!--hs-->
+        <div class="input-group">
+            <input type="text" class="searchStr" placeholder="원하시는 일정을 검색해보세요!"/>
+            <div class="input-group-append">
+                <button class="btn btn-primary search" data-toggle="modal" data-target="#myModal"><i class="fas fa-search"></i>검색</button>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">선수정보</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div id="output"></div>
+
+
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+<!--EndModal-->
+
+        <br /><br />
+        <div id="txt-choice">
+            <div class="tc"><tr><strong>만들팀선택</strong></tr></div>
+            <div class="tc"><tr><strong>년도검색</strong></tr></div>
+            <div class="tc"><tr><strong>팀별검색</strong></tr></div>
+            <div class="tc"><tr><strong>타자/투수</strong></tr></div>
+            <div class="tc"><tr><strong>포지션</strong></tr></div>
+            <div class="tc"><tr><strong>선수명</strong></tr></div>
+        </div>
+
+        <div id="choice"><br />
+
+
+
+        <div class="ch"><select id="myTeam">
+              <option  value="" selected disabled hidden>==만들팀==</option>
+            <option name="1">내팀</option>
+            <option name="2">상대팀</option>
+            </select></div>
+
+        <div class="ch"><select name="year">
+              <option value="--" selected="selected">&nbsp;&nbsp; --- &nbsp;&nbsp; </option>
+              <option value="1999">1999</option>
+              <option value="1888">1888</option>
+            </select></div>
+
+            <div class="ch"><select name="team">
+              <option value="--" selected="selected">&nbsp;&nbsp; --- &nbsp;&nbsp; </option>
+              <option value="1999">1999</option>
+              <option value="1888">1888</option>
+            </select></div>
+
+            <div class="ch"><select name="hp">&nbsp;
+              <option value="--" selected="selected">&nbsp;&nbsp; --- &nbsp;&nbsp; </option>
+              <option value="1999">1999</option>
+              <option value="1888">1888</option>
+            </select></div>
+
+            <div class="ch"><select name="position">
+              <option value="--" selected="selected">&nbsp;&nbsp; --- &nbsp;&nbsp; </option>
+              <option value="1999">1999</option>
+              <option value="1888">1888</option>
+            </select></div>
+
+            <div class="ch"><select id='Nselect'>
+              <option  value="" selected disabled hidden>==선수명== </option>
+               <option>이대호</option>
+                <option>김태균</option>
+                <option>양현종</option>
+                <option>최형우</option>
+                <option>윤석민</option>
+                <option>최정</option>
+                <option>정우람</option>
+            </select></div>
+
+
+                <div class="ch"><button id="search2" type="button"><strong>추가</strong></button></div>
+            </div>
+</div>
+</div>
+
+<br><br><br>
+<div id="total" class="container-fluid">
+    <div id="row2">
+        <!-- team1 시작-->
+        <div class="col-md-3 justify-content-left" id="left">
+            <div class=makeTeam>
+                <div class="index">
+                <ul>
+                    {% for i in rg %}
+                         <li id="left-li" >{{i}}</li>
+                    {% endfor %}
+                </ul>
+                </div>
+
+                <div>
+                <ul class="sortable" id="team1">
+                    {% for i in rg %}
+                        <li class="ui-state-default" id="sort-li">Player</li>
+                    {% endfor %}
+                </ul>
+                </div>
+
+                <div class="delete" id="delete">
+                    {% for i in rg %}
+                        <div>
+                            <button id='del1' value={{i}} name="1"><span class="glyphicon glyphicon-remove"></span></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br>
+            <div class="teamName" style="text-align:center">
+                Team 1 : <input type="text" id="t1Name" name="1">
+            </div>
+        </div>
+        </div>
+        <!-- team1 끝-->
+
+        <!-- '스코어 보드 & 버튼'부분 시작-->
+        <div class="col-md-6 justify-content-center" id="box_center1">
+            <div id="score">
+                <table id="score_board">
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;"></th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th><strong>R</strong></th>
+                            <th>H</th>
+                            <th>E</th>
+                            <th>B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th id="t1">KIA</th>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td><strong>6</strong></td>
+                            <td>8</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <th id="t2">넥센</th>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>-</td>
+                            <td><strong>10</strong></td>
+                            <td>11</td>
+                            <td>0</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br><br><br>
+            <div id="center_btns">
+                <button id="chat-message-submit" class="ui-state-default ui-corner-all" type="button" value="send"><strong>Game Start</strong></button>
+                <button id="Result" class="ui-state-default ui-corner-all" type="button"><strong>주요 기록보기</strong></button>
+                <!--<button id="Rhide" class="ui-state-default ui-corner-all" type="button">숨기기</button>-->
+            </div>
+        </div>
+        <!-- '스코어 보드 & 버튼'부분끝 -->
+
+        <!------------- 빈칸 --------------->
+        What chat room would you like to enter?<br/>
+        <input id="room-name-input" type="text" size="100"/><br/>
+        <input id="room-name-submit" type="button" value="Enter"/>
+        <!------------- 빈칸 --------------->
+
+
+        <!-- team2 시작 -->
+        <div class="col-md-3 justify-content-right" id="right">
+            <div class=makeTeam >
+                <div class="index">
+                <ul>
+                    {% for i in rg %}
+                        <li id="right-li">{{i}}</li>
+                    {% endfor %}
+                </ul>
+                </div>
+
+                <div>
+                <ul class="sortable" id="team2">
+                    {% for i in rg %}
+                        <li class="ui-state-default" id="sort-li2">Player</li>
+                    {% endfor %}
+                </ul>
+                </div>
+
+                <div class="delete" id="delete2">
+                    {% for i in rg %}
+                        <div>
+                            <button id='del2' value={{i}} name="2"><span class="glyphicon glyphicon-remove"></span></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br>
+            <div class="teamName" style="text-align:center">
+                Team 2 : <input type="text" id="t2Name" name="2">
+            </div>
+        </div>
+        <!-- team2 끝 -->
+    </div>
+</div>
+
+<br><br>
+<!-- 주요기록부분 시작 -->
+<div class="toggler">
+    <div id="effect" class="ui-widget-content ui-corner-all">
+
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">1회</a></li>
+                <li><a href="#tabs-2">2회</a></li>
+                <li><a href="#tabs-3">3회</a></li>
+                <li><a href="#tabs-3">4회</a></li>
+                <li><a href="#tabs-3">5회</a></li>
+                <li><a href="#tabs-3">6회</a></li>
+                <li><a href="#tabs-3">7회</a></li>
+                <li><a href="#tabs-3">8회</a></li>
+                <li><a href="#tabs-3">9회</a></li>
+            </ul>
+
+            <div id="record_tab">
+                <div id="tabs-1">
+                    <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
+                    <!--<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris.-->
+                        <!--Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.-->
+                        <!--Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie-->
+                        <!--erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.-->
+                        <!--&gt;Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris.-->
+                        <!--Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.-->
+                        <!--Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie-->
+                        <!--erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.-->
+                        <!--&gt;Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris.-->
+                        <!--Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.-->
+                        <!--Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie-->
+                        <!--erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.-->
+                    <!--</p>-->
+                </div>
+                <div id="tabs-2">
+                    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                </div>
+                <div id="tabs-3">
+                    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<br><br>
+
+</tbody>
+</body>
+
+    <script>
+    var roomName = {{ room_name_json }};
+
+    var chatSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/game/' + roomName + '/');
+
+    chatSocket.onmessage = function(e) {
+        var data = JSON.parse(e.data);
+        var message = data['message'];
+        document.querySelector('#chat-log').value += (message + '\n');
+    };
+
+    chatSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+
+    document.getElementById('chat-message-submit').onclick = function(e) {
+        var messageInputDom = this;
+        var message = messageInputDom.value;
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }));
+
+        messageInputDom.value = '';
+    };
+</script>
+
+</html>

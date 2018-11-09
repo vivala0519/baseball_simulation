@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Django Web Programming{% endblock %}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/baseball.css' %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+<script src="/static/js/baseball.js" type="text/javascript"></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<div>
+<div id="header">
+    <div id="h-box"><h2 class="maintitle"><a class="maintitle" href="{% url 'home' %}">Your Baseball Simulation PlayGround</a></h2></div>
+ {% if user.is_active %}
+    <h4 class="welcome"><div id="wel">Welcome,
+        <strong>{% firstof user.get_short_name user.get_username %}</strong></div>
+        <!-- Logout 클릭시 /accounts/logout/ URL로 연결 -->
+        <a id="out1" href="{% url 'logout' %}">Logout /</a>
+        <!-- Change Password 클릭시 name='password_change'로 지정되어 있는 /accounts/password_change/ URL로 연결 -->
+        <a id="out2" href="{% url 'password_change' %}">Change Password </a>
+    </h4>
+</div>
+
+    {% else %}
+    <h4 class="welcome"><div id="wel1">Welcome, Anonymous </div>
+        <!-- Login 클릭시 /accounts/login/ URL로 연결 -->
+        <a id="log1" href="{% url 'login' %}">login /</a>
+        <!-- Register 클릭시 /accounts/register/ URL로 연결 -->
+        <a id="log2" href="{% url 'register' %}">register</a>
+    </h4>
+    {% endif %}
+
+
+    {% block content %}{% endblock %}
+
+</div>
+
+<div class="container-fluid" id="fluid" style="margin-top: 290px;">
+
+<div id="row1">
+
+        <strong id="st_h4">Team OR Player Search: </strong>
+          <input id="search1" type="text" name="q">
+        <button id="icon" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+
+        <br /><br />
+        <div id="txt-choice">
+            <div class="tc"><tr><strong>Make a Team</strong></tr></div>
+            <div class="tc"><tr><strong>Year</strong></tr></div>
+            <div class="tc"><tr><strong>Team</strong></tr></div>
+            <div class="tc"><tr><strong>Hitter/Pitcher</strong></tr></div>
+            <div class="tc"><tr><strong>Position</strong></tr></div>
+            <div class="tc"><tr><strong>Player</strong></tr></div>
+        </div>
+
+        <div id="choice" ><br />
+        &nbsp;&nbsp;
+        <div class="ch"><select class="sl" id="myTeam">
+            <option  value="" selected disabled hidden><p class="pp">팀정하기</p></option>
+            <option name="1">내팀</option>
+            <option name="2">상대팀</option>
+            </select></div>
+
+        <div class="ch"><select class="sl" name="year" >
+              <option value="--" selected="selected"><p class="pp">년도선택</p></option>
+              <option value="1999">1999</option>
+              <option value="1888">1888</option>
+            </select></div>
+
+            <div class="ch"><select class="sl" name="team">
+              <option value="--" selected="selected"><p class="pp">팀별검색</p></option>
+              <option value="1999">1999</option>
+              <option value="1888">1888</option>
+            </select></div>
+
+            <div class="ch"><select class="sl" name="hp">&nbsp;
+              <option value="--" selected="selected"><p class="pp">타자/투수</p></option>
+              <option value="1999">1999</option>
+              <option value="1888">1888</option>
+            </select></div>
+
+            <div class="ch"><select class="sl" name="position">
+              <option value="--" selected="selected"><p class="pp">포지션</p></option>
+              <option value="1999">1999</option>
+              <option value="1888">1888</option>
+            </select></div>
+
+            <div class="ch"><select class="sl" id='Nselect'>
+              <option  value="" selected disabled hidden><p class="pp">선수명</p></option>
+               <option>이대호</option>
+                <option>김태균</option>
+                <option>양현종</option>
+                <option>최형우</option>
+                <option>윤석민</option>
+                <option>최정</option>
+                <option>정우람</option>
+            </select></div>
+
+
+                <div class="ch"><button id="search2" type="button"><strong>추가</strong></button></div>
+            </div>
+</div>
+</div>
+
+
+<div id="total" class="container-fluid" >
+    <div id="row2">
+        <!-- team1 시작-->
+        <div class="col-md-3 justify-content-left" id="left">
+            <div class=makeTeam>
+                <div class="index">
+                <ul>
+                    {% for i in rg %}
+                         <li id="left-li" >{{i}}</li>
+                    {% endfor %}
+                </ul>
+                </div>
+
+                <div>
+                <ul class="sortable" id="team1">
+                    {% for i in rg %}
+                        <li class="ui-state-default" id="sort-li">Player</li>
+                    {% endfor %}
+                </ul>
+                </div>
+
+                <div class="delete" id="delete">
+                    {% for i in rg %}
+                        <div>
+                            <button id='del1' value={{i}} name="1"><span class="glyphicon glyphicon-remove"></span></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="teamName" style="text-align:center;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div id="teamName1"><label for="t1Name"><strong>Team 1</strong></label><input type="text" id="t1Name" name="1" placeholder="Team 1"></div>
+
+
+            </div>
+        </div>
+        </div>
+        <!-- team1 끝-->
+
+        <!-- '스코어 보드 & 버튼'부분 시작-->
+        <div class="col-md-6 justify-content-center" id="box_center1">
+            <div id="score">
+                <table id="score_board" style="text-align: center; margin: 0 auto;">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px; text-align:center;">Team</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                            <th>11</th>
+                            <th>12</th>
+                            <th><strong>R</strong></th>
+                            <th>H</th>
+                            <th>E</th>
+                            <th>B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th id="t1" style="text-align:center;">KIA</th>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td><strong>6</strong></td>
+                            <td>8</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <th id="t2" style="text-align:center;">넥센</th>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td><strong>10</strong></td>
+                            <td>11</td>
+                            <td>0</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br><br><br>
+            <div id="center_btns">
+                <button id="start" class="ui-state-default ui-corner-all" type="button"><strong>Game Start</strong></button>
+                <button id="Result" class="ui-state-default ui-corner-all" type="button"><strong>주요 기록보기</strong></button>
+                <!--<button id="Rhide" class="ui-state-default ui-corner-all" type="button">숨기기</button>-->
+            </div>
+        </div>
+        <!-- '스코어 보드 & 버튼'부분끝 -->
+
+        <!-- team2 시작 -->
+        <div class="col-md-3 justify-content-right" id="right">
+            <div class=makeTeam >
+                <div class="index">
+                <ul>
+                    {% for i in rg %}
+                        <li id="right-li">{{i}}</li>
+                    {% endfor %}
+                </ul>
+                </div>
+
+                <div>
+                <ul class="sortable" id="team2">
+                    {% for i in rg %}
+                        <li class="ui-state-default" id="sort-li2">Player</li>
+                    {% endfor %}
+                </ul>
+                </div>
+
+                <div class="delete" id="delete2">
+                    {% for i in rg %}
+                        <div>
+                            <button id='del2' value={{i}} name="2"><span class="glyphicon glyphicon-remove"></span></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br>
+            <div class="teamName" style="text-align:center">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div id="teamName2"><label for="t2Name"><strong> Team 2</strong></label> <input type="text" id="t2Name" name="2"  placeholder="Team 2"></div>
+
+            </div>
+        </div>
+        <!-- team2 끝 -->
+    </div>
+</div>
+
+<br><br>
+<!-- 주요기록부분 시작 -->
+<div class="toggler">
+    <div id="effect" class="ui-widget-content ui-corner-all">
+
+        <div id="tabs">
+            <ul>
+
+                <li><a href="#tabs-1">1회</a></li>
+                <li><a href="#tabs-2" >2회</a></li>
+                <li><a href="#tabs-3">3회</a></li>
+                <li><a href="#tabs-3">4회</a></li>
+                <li><a href="#tabs-3">5회</a></li>
+                <li><a href="#tabs-3">6회</a></li>
+                <li><a href="#tabs-3">7회</a></li>
+                <li><a href="#tabs-3">8회</a></li>
+                <li><a href="#tabs-3">9회</a></li>
+                <li><a href="#tabs-3">10회</a></li>
+                <li><a href="#tabs-3">11회</a></li>
+                <li><a href="#tabs-3">12회</a></li>
+
+
+            </ul>
+
+            <div id="record_tab">
+                <div id="tabs-1">
+                    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris.
+                        Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.
+                        Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie
+                        erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
+                        >Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris.
+                        Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.
+                        Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie
+                        erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
+                        >Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris.
+                        Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.
+                        Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie
+                        erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
+                    </p>
+                </div>
+                <div id="tabs-2">
+                    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                </div>
+                <div id="tabs-3">
+                    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<br><br>
+
+</body>
+
+</html>
+
+

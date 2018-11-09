@@ -1,0 +1,21 @@
+{% extends "base.html" %}   <!--base.html 을 상속받으며 첫줄에 와야함 -->
+
+{% block title %}register_done.html{% endblock %}
+
+{% load staticfiles %}  <!-- 커스텀 태그를 사용하기 위해 staticfiles 모듈 로딩 -->
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+<div id="content4">
+
+    <h1 style="color:#225273;">Registration Completed Successfully ! </h1>
+
+    <p>Thank you for registering.</p>
+
+    <p><a href="{% url 'login' %}">[ Login ]</a></p>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock footer %}
