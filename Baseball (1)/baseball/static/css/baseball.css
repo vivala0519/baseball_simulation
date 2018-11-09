@@ -87,6 +87,22 @@ div#header {
 /* ================== title 끝 ==================*/
 
 /* ================== 선수선택 ==================*/
+/*검색기능시 css*/
+div#row1{
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 50px;
+}
+
+
+#output .row {
+    padding-right: 30%;
+    padding-left: 30%;
+
+    margin-bottom: 5px;
+}
+/**/
+
 
 .ch {
     display: inline;

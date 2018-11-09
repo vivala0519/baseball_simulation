@@ -26,16 +26,23 @@ def room(request, room_name):
 
 @csrf_exempt
 def SearchPlayer(request):
-    print("zzz")
+    print("search!!!!!!!")
     searchStr = request.POST['searchStr']
     print(searchStr)
-    data = Batter.objects.all().filter(player=searchStr).order_by("-player")
+
+    data1 = Batter.objects.all().filter(player=searchStr).order_by("-player")
+    data2 = Pitcher.objects.all().filter(player=searchStr).order_by("-player")
     result = []
 
-    for i in data:
+    for i in data1:
         result.append({"year": i.year,
                        "team": i.team,
                        "position": i.position,
                        "player": i.player})
+    for i in data2:
+        result.append({"year": i.year,
+                       "team": i.team,
+                       "player": i.player})
 
     return JsonResponse(result, safe=False)
+

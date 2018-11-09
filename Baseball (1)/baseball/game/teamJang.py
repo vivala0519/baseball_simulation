@@ -3,8 +3,7 @@ from random import choices
 #def home_team_line_up():
 
 
-#def away_team_line_up():
-
+#def away_team_line_up()
 
 # def batter():
 #     fp = open("STATIZ_batter.html", encoding='utf-8')

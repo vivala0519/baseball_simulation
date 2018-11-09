@@ -1,39 +1,101 @@
-
+var playerInfo = []
 $(document).ready(function() {
     //branch test
     // 선수 검색
     $('.search').click(function (){
-
+        var params = $('.searchStr').val();
+        console.log(params);
         $.ajax({
-            url:'/game/SearchPlayer/',              //game : 앱이름
+        	 url:'game/SearchPlayer/',
             type:'POST',
             dataType: "json",
             contentType : 'application/x-www-form-urlencoded; charset=utf-8',
-            data : {'searchStr' : $('.searchStr').val()},
+            data : {'searchStr' : params},
 
-            success:function(data) {
-                $('#output').empty();
-                $.each(data, function(index, item){
-                      alert("데이터들어옴");
-                   var output = '';
-                   output += item.year + ', ';
-                   output += item.team + ', ';
-                   output += item.position + ', ';
-                   output += item.player + ', ';
-                   output += '&nbsp' + '<button type="button" class="btn btn-dark" id="playerCheck">선택</button>'
-                   console.log("output:" + output);
-                   $('#output').append(output);
-                });
-            },
-            error:function(){
-                alert("ajax통신 실패!!!");
-            }
-        });
+         	success:function(data) {
+         	console.table(data);
+            $('#output').empty();
+        	 $.each(data, function(index, item){
+					var output = '';
+
+                    output += '<div class="row">';
+                    output += '<div style="float:left;">';
+                    output += item.year + ', ';
+                    output += item.team + ', ';
+                    output += item.position + ', ';
+                    output += item.player;
+                    output += '</div>';
+                    output += '<button type="button" class="btn btn-dark playerCheck" id="">추가</button>';
+					output += '</div>';
+					output += '<hr/>';
+
+
+
+					console.log("output:" + output);
+
+					$('#output').append(output);
+				});
+				console.table(playerInfo);
+			},
+			error:function(){
+				alert("ajax통신 실패!!!");
+			}
+		});
+
     });
     /*on 태그가 동적?생성시 사용*/
     /*$('#playerCheck').on(function (){*/
-    $(document).on("click","#playerCheck",function(){
-        alert("선수선택");
+    /*추가버튼 누를때*/
+    $(document).on("click",".playerCheck",function(){
+
+        /*var test = []
+        test.push(document.getElementById('#output.val'));
+        alert(test[0]);*/
+
+
+        var players;
+        var selectTeam = $('#selectTeam option:selected').text();
+        var teamIdx = $('#selectTeam option:selected').attr('name');
+        var selectPlayer = this.previousElementSibling.innerHTML; /*this : 누른 데이터의 클래스를 가르킨다. / nextElementSibling : 다음형제 - 자식을건너뛰고 의정보 <->previousElementSibling : 이전형제의정보/ innerHTML : 글*/
+        console.log(selectPlayer);
+        var selectPlayerList = selectPlayer.split(',') // 배열로 리턴된다
+        console.log(selectPlayerList);
+
+        /*js : findIndex함수*/
+        var checkInfo = playerInfo.findIndex(x => x.toString() == selectPlayerList.toString()); /*toString 배열의 요소값을 비교하기위해서*/
+
+                console.log(checkInfo);
+                if (checkInfo == -1) {
+                    playerInfo.push(selectPlayerList);
+                }
+        /*js : findIndex함수 끝*/
+
+        if (selectTeam == '팀선택'){
+            alert('팀을 선택해주세요')
+        }
+        else{
+            for(var i=1; i<=12; i++){
+                players = $('#team'+teamIdx+' li:nth-child('+i+')').text();
+            }
+
+
+            for(var i=1; i<=12; i++){
+                /*타자 1~9*/
+                 players = $('#team'+teamIdx+' li:nth-child('+i+')').text(); //*li:nth-child : list가 몇번쨰인지.*//* *//*'#team'+teamIdx+' : team1 or team2*/
+                if(players ==  'Player' && i <= 9 && selectPlayerList[2] != ' undefined'){
+                    $('#team'+teamIdx+' li:nth-child('+i+')').text(selectPlayerList[3]);
+                    break;
+                }
+                /*투수 10~12*/
+                else if (players ==  'Player' && (i>9 && i<=12) && selectPlayerList[2] == ' undefined'){
+                    $('#team'+teamIdx+' li:nth-child('+i+')').text(selectPlayerList[3]);
+                    break;
+                }
+
+
+            }
+        }
+
     });
 
 
