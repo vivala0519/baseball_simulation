@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/baseball_project.iml" filepath="$PROJECT_DIR$/.idea/baseball_project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Baseball.iml" filepath="$PROJECT_DIR$/.idea/Baseball.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/Git_practice/Python/python/DjangoAuthProject/.idea/DjangoAuthProject.iml" filepath="$USER_HOME$/Desktop/Git_practice/Python/python/DjangoAuthProject/.idea/DjangoAuthProject.iml" />
     </modules>
   </component>
 </project>
